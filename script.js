@@ -17,17 +17,40 @@ function generatePassword() {
       return;
     }  
     if (passwordLength < 8 || passwordLength > 128) {
-          var passwordLength = alert("Improper password length. Password must be between 8 and 128 characters.");
+          var passwordLength = alert("Improper password length.\nPassword must be between 8 and 128 characters.");
           generatePassword(); 
           return;
       }
      
-    else { alert("You've chosen a password that is " + passwordLength + " characters long");
+    else { alert("You've chosen a password that is " + passwordLength + " characters long\nYou may chose between the following chracter types:\nlowercase\nuppercase\nnumeric\nspecial characters");
     }
     console.log(passwordLength);
+    characters();
 
 // 	3) WHEN prompted for character types to include in the password THEN I choose lowercase, uppercase, numeric, and/or special characters 
 
+// I can do this with confirms. I'd like to be able to do this all at once though://
+    function characters() {
+    // alert("You may chose between lowercase, uppercase, numeric, and/or special characters");
+    var lowercase = confirm("would you like to include lowercase letters?");
+    var uppercase = confirm("would you like to include uppercase letters?");
+    var numeric = confirm("would you like to include numbers?");
+    var specialCharacters = confirm("would you like to include special characters?");
+    var characterTypes = [lowercase, uppercase, numeric, specialCharacters];
+
+    console.log(lowercase);
+    console.log(uppercase);
+    console.log(numeric);
+    console.log(specialCharacters);
+    console.log(characterTypes);
+
+      if (lowercase === false && uppercase === false && numeric === false && specialCharacters === false) {
+        alert("at least one characterType must be selected");
+        characters();
+      }
+
+
+    // Let's get random
 
 
 
