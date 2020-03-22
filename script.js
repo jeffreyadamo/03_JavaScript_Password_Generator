@@ -16,11 +16,7 @@ function generatePassword() {
   /****
    * WRITE YOUR CODE HERE
    */
-  var password1 = [];
-  var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
-  var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numbers = "0123456789";
-  var special = "~!@#$%^&*?";
+  password1 = [];
   selectedCharacter = [];
   characterTypes = [];
   lowercase = false;
@@ -130,26 +126,31 @@ function generatePassword() {
   //Execute the function characters
   characters();
 
-  console.log("list of characters " + selectedCharacter);
+  console.log("selectedCharacter is " + selectedCharacter);
   console.log("passwordLength is " + passwordLength);
-
+  console.log("-------For loop magic/failure-----------")
 
   // This is how to generate a random number
   // var num = Math.floor(Math.random() * 10);
   // console.log(num);
   // console.log(special);
 
+  selectedCharacter = selectedCharacter.join("");
+  console.log("Is selectedCharacter joined? " + selectedCharacter);
 
   for (var i = 0; i < passwordLength; i++) {
-    password1.push(selectedCharacter[Math.floor(Math.random() * parseInt(passwordLength))]);
+    password1.push(selectedCharacter[Math.floor(Math.random() * selectedCharacter.length)]); 
+    
+    //This For loop was the hardest thing to get right. The selectedCharacter.length was important bc if larger than the actual array length, it might return empty values.//
 
 
     // var num = Math.floor(Math.random() * 10);
     // console.log(num);
   }
+  console.log("password1.length is: " + password1.length);
+  console.log("password1 is: " + password1);
+  console.log("password1.join('') is: " + password1.join(""));
 
-  console.log("password1 is: " + password1.join(""));
-  console.log(password1.length);
 
 
   // Conditions:
