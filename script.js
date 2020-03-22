@@ -32,8 +32,13 @@ function generatePassword() {
   //   //    Define password length. Once "Generate Password" is clicked, it will run the generatePassword function. We are to prompt the user with how long they want the password to be. It must be at least 8 characters long and less than 128 characters. User can cancel out of the function. Password length is then verified to the user.
 
   var passwordLength = prompt("How long would you like your password to be? (min 8; max 128)");
+    if (isNaN(passwordLength)){
+        alert("Password Length must be a number. Try again");
+        return;
+    }
     if (passwordLength === null) {
       return;
+    
     }
 
     if (passwordLength < 8 || passwordLength > 128) {
